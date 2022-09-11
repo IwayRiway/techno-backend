@@ -10,6 +10,7 @@ class Techno extends REST_Controller {
    function __construct()
     {
         parent::__construct();
+        $this->load->model('Techno_model');
     }
 
     private function bad($message)
@@ -74,7 +75,7 @@ class Techno extends REST_Controller {
     public function delete_post()
     {
       $data = $this->Techno_model->delete($this->post('id'));
-      $data == 0 ? $this->ok($data, 'Berhasil Dihapus') : $this->notfound('Gagal Dihapus');
+      $data == 1 ? $this->ok($data, 'Berhasil Dihapus') : $this->notfound('Gagal Dihapus');
     }
 
 }
